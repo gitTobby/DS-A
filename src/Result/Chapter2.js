@@ -1,3 +1,97 @@
+import React from "react";
+import { Fragment } from "react";
+import Prism from 'prismjs';
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-javascript';
+
+class Chapter2 extends React.Component {
+    componentDidMount() {
+        Prism.highlightAll();
+    }
+
+    render () {
+        return (
+            <Fragment>
+                <div className="sec_code">
+                    <div className="code_bx">
+                        <div className="code_title">등가비교</div>
+                        <pre>
+                            <code className="language-js">
+                                {`
+                                    //객체는 동일함에도(동일한 속성과 값을 지님) 두 객체는 동일하지 않다.
+                                    //두 변수의 메모리상 주소가 다르기 때문이다.
+                                    var o1 = {};
+                                    var o2 = {};
+
+                                    o1 == o2    //false
+                                    o1 === o2   //false
+                                `}
+                            </code>
+                        </pre>
+                    </div>
+                    <div className="result_bx">
+                        <div className="rs_title">Result</div>
+                        <div className="rs_content">
+                            <div className="inbx">
+                                <button type="button">결과보기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="sec_code">
+                    <div className="code_bx">
+                        <div className="code_title">타입까지 등가를 확인하는 로직</div>
+                        <pre>
+                            <code className="language-js">
+                                {`
+                                    function isEquivalent(a, b) {
+                                        //속성 이름 배열
+                                        var aProps = Object.getOwnPropertyNames(a);
+                                        var bProps = Object.getOwnPropertyNames(b);
+
+                                        //속성 길이가 다른 경우 두 객체는 다른 객체다.
+                                        if (aProps.length != bProps.length) {
+                                            return false;
+                                        }
+
+                                        for (var i = 0; i < aProps.length; i++) {
+                                            var propName = aProps[i];
+                                            
+                                            //속성 값이 다른 경우 두 객체는 같지 않다.
+                                            if (a[propName] != b[propName]) {
+                                                return false;
+                                            }
+                                        }
+
+                                        //모든 것이 일치하면 두 객체는 일치한다.
+                                        return true;
+                                    }
+                                    isEquivalent(
+                                        {'hi' : 12},
+                                        {'hi' : 12}
+                                    );
+                                `}
+                            </code>
+                        </pre>
+                    </div>
+                    <div className="result_bx">
+                        <div className="rs_title">Result</div>
+                        <div className="rs_content">
+                            <div className="inbx">
+                                <button type="button">결과보기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Fragment>
+        );
+    }
+}
+
+export default Chapter2;
+
+/*
 //객체는 동일함에도(동일한 속성과 값을 지님) 두 객체는 동일하지 않다.
 //두 변수의 메모리상 주소가 다르기 때문이다.
 var o1 = {};
@@ -60,3 +154,5 @@ console.log(function1 == function2);  //false
 //type 확인을 위해서 typeof를 사용해 원하는 type가 맞는지 검증할 수 있다.
 //마지막으로 등가 확인을 위해 값에 대해서는 ==를 사용하고 값과 type이 모두 같은지 확인하기 위해서는 ===를 사용하자.
 //==와 === 연산자는 숫자, 문자열, 불리언과 같은 비객체형에만 사용할 수 있다.
+
+*/

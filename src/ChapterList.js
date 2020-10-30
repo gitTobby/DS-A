@@ -1,35 +1,51 @@
-import React from "react";
-import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
+// import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+// import menuList from './db_menu';
 
 const ChapterList = () => {
+    const menuList = [
+        { name: 'Chapter1', text: '1. 빅오표기법' },
+        { name: 'Chapter2', text: '2. 자바스크립트의 독특한 특징' },
+        /*
+        { name: 'Chapter3', text: '3. 자바스크립트 숫자' },
+        { name: 'Chapter4', text: '4. 자바스크립트 문자열' },
+        { name: 'Chapter5', text: '5. 자바스크립트 배' },
+        { name: 'Chapter6', text: '6. 자바스크립트 객체' },
+        { name: 'Chapter7', text: '7. 자바스크립트 메모리 관리' },
+        { name: 'Chapter8', text: '8. 재귀' },
+        { name: 'Chapter9', text: '9. 집합' },
+        { name: 'Chapter10', text: '10. 검색과 정렬' },
+        { name: 'Chapter11', text: '11. 해시 테이블' },
+        { name: 'Chapter12', text: '12. 스택과 큐' },
+        { name: 'Chapter13', text: '13. 연결 테스트' },
+        { name: 'Chapter14', text: '14. 캐싱' },
+        { name: 'Chapter15', text: '15. 트리' },
+        { name: 'Chapter16', text: '16. 힙' },
+        { name: 'Chapter17', text: '17. 그래프' },
+        { name: 'Chapter18', text: '18. 고급 문자열' },
+        { name: 'Chapter19', text: '19. 동적 프로그래밍' },
+        { name: 'Chapter20', text: '20. 비트조직' },
+        */
+    ];
+
+    const [isActive, setActive] = useState('false');
+
+    const handleToggle = () => {
+        setActive(!isActive);
+    };
+
     return (
-        <Link to="/Chapter1">
-            <button>1. 빅오표기볍</button>
-        </Link>
-        // <div>
-        //   <ol>
-        //     <li><a href="#">1. 빅오표기볍</a></li>
-        //     <li><a href="#">2. 자바스크립트의 독특한 특징</a></li>
-        //     <li><a href="#">3. 자바스크립트 숫자</a></li>
-        //     <li><a href="#">자바스크립트 문자열</a></li>
-        //     <li><a href="#">5. 자바스크립트 배열</a></li>
-        //     <li><a href="#">6. 자바스크립트 객체</a></li>
-        //     <li><a href="#">7. 자바스크립트 메모리 관리</a></li>
-        //     <li><a href="#">8. 재귀</a></li>
-        //     <li><a href="#">9. 집합</a></li>
-        //     <li><a href="#">10. 검색과 정렬</a></li>
-        //     <li><a href="#">11. 해시 테이블</a></li>
-        //     <li><a href="#">12. 스택과 큐</a></li>
-        //     <li><a href="#">13. 연결 리스트</a></li>
-        //     <li><a href="#">14. 캐싱</a></li>
-        //     <li><a href="#">15. 트리</a></li>
-        //     <li><a href="#">16. 힙</a></li>
-        //     <li><a href="#">17. 그래프</a></li>
-        //     <li><a href="#">18. 고급 문자열</a></li>
-        //     <li><a href="#">19. 동적 프로그래밍</a></li>
-        //     <li><a href="#">20. 비트조작</a></li>
-        //   </ol>
-        // </div>
+        <ul>
+            {
+                menuList.map(menuAttr => (
+                    <li className={`${isActive ? "selected" : ""}`}>
+                        <Link to={menuAttr.name} onClick={handleToggle} >{menuAttr.text}</Link>
+                    </li>
+                )
+                )
+            }
+        </ul>
     );
 }
 
