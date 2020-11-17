@@ -19,16 +19,16 @@ import ChapterContent from './ChapterContent'
 
 const App = () => {
     return (
-        <Router>
-            <div className="wrap">
+        <div className="wrap">
+            <Router>
                 <nav>
                     <ChapterList />
                 </nav>
-                <section>
+                <section> 
                     <ChapterContent />
                 </section>
-            </div>
-        </Router>
+            </Router>
+        </div>
     );
 }
 

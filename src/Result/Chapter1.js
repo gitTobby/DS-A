@@ -4,12 +4,63 @@ import Prism from 'prismjs';
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-javascript';
 
+
 class Chapter1 extends React.Component {
+    state = {
+        results: [],
+        results2: [],
+    }
+
     componentDidMount() {
         Prism.highlightAll();
     }
 
-    render () {
+    //예제함수
+    exampleLinear = (n) => {
+        let arr = [];
+        for (var i = 0; i < n; i++) {
+            arr.push(i);
+        }
+        return arr;
+    }
+    exampleQuadratic = (n) => {
+        let arr = [];
+        //let arr2 = [];
+        for (var i = 0 ; i < n; i++) {
+            arr.push(i);
+            for (var j = i; j < n; j++) {
+                arr.push(j);
+            }
+        }
+        return arr;
+    }
+
+    handleClick = (a) => {
+        // if (a === 1) {
+        //     const result = this.exampleLinear(10);
+        //     this.setState({
+        //         results: result
+        //     })
+        // }
+
+        if (a === 1) {
+            const result = this.exampleLinear(10);
+            this.setState({
+                results: result
+            })
+        } else if (a === 2) {
+            const result = this.exampleQuadratic(10);
+            this.setState({
+                results2: result
+            })
+            
+        }
+
+        
+        
+    }
+
+    render() {
         return (
             <Fragment>
                 <div className="sec_code">
@@ -31,7 +82,8 @@ class Chapter1 extends React.Component {
                         <div className="rs_title">Result</div>
                         <div className="rs_content">
                             <div className="inbx">
-                                <button type="button">결과보기</button>
+                                <button type="button" onClick={() => this.handleClick(1)}>결과보기</button>
+                                <div className="results">Result: {this.state.results.map(item => item + ",")}</div>
                             </div>
                         </div>
                     </div>
@@ -59,7 +111,16 @@ class Chapter1 extends React.Component {
                         <div className="rs_title">Result</div>
                         <div className="rs_content">
                             <div className="inbx">
-                                
+                                <button type="button" onClick={() => this.handleClick(2)}>결과보기</button>
+                                <div className="results">
+                                    Result: {
+                                        this.state.results2.map(item => {
+                                            item
+                                            console.log(item);
+                                        })
+                                        
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -90,7 +151,7 @@ class Chapter1 extends React.Component {
                         <div className="rs_title">Result</div>
                         <div className="rs_content">
                             <div className="inbx">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -115,7 +176,7 @@ class Chapter1 extends React.Component {
                         <div className="rs_title">Result</div>
                         <div className="rs_content">
                             <div className="inbx">
-                                
+
                             </div>
                         </div>
                     </div>

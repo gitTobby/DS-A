@@ -7,11 +7,11 @@ const menuList = [
         name: 'Chapter2',
         text: '2. 자바스크립트의 독특한 특징',
     },
-    /*
     {
         name: 'Chapter3',
         text: '3. 자바스크립트 숫자',
     },
+    /*
     {
         name: 'Chapter4',
         text: '4. 자바스크립트 문자열',
