@@ -22,17 +22,27 @@
                     // 현재 칸의 값을 임시(temp) 변수에 저장한다.
                     var temp = mat[x][y];
 
+                    console.log(mat);
+
                     // 현재 항목 기준 오른쪽 값을 현재 항목 기주 위쪽 칸에 할당한다.
                     mat[x][y] = mat[y][N-1-x];
+
+                    console.log(mat);
 
                     // 현재 항목 기준 아래쪽 값을 현재 항목 기준 오른쪽 칸에 할당한다.
                     mat[y][N-1-x] = mat[N-1-x][N-1-y];
 
+                    console.log(mat);
+
                     // 현재 항목 기준 왼쪽 값을 현재 항목 기준 아래쪽 칸에 할당한다.
                     mat[N-1-x][N-1-y] = mat[N-1-y][x];
 
+                    console.log(mat);
+
                     // 임시 변수의 값을 현재 항목 기준 왼쪽 칸에 할당한다.
                     mat[N-1-y][x] = temp;
+
+                    console.log(mat);
                 }
             }
         }

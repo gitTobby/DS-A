@@ -7,8 +7,8 @@ import Chapter2 from "./Result/Chapter2";
 import Chapter3 from "./Result/Chapter3";
 import Chapter4 from "./Result/Chapter4";
 import Chapter5 from "./Result/Chapter5";
-/*
 import Chapter6 from "./Result/Chapter6";
+/*
 import Chapter7 from "./Result/Chapter7";
 import Chapter8 from "./Result/Chapter8";
 import Chapter9 from "./Result/Chapter9";
@@ -34,8 +34,8 @@ const ChapterContent = () => {
             <Route path="/Chapter3" component={Chapter3} />
             <Route path="/Chapter4" component={Chapter4} />
             <Route path="/Chapter5" component={Chapter5} />
-            {/*
             <Route path="/Chapter6" component={Chapter6} />
+            {/*
             <Route path="/Chapter7" component={Chapter7} />
             <Route path="/Chapter8" component={Chapter8} />
             */}

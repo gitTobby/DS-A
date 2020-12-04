@@ -10,8 +10,8 @@ const ChapterList = () => {
         { inx: '3', name: 'Chapter3', text: '3. 자바스크립트 숫자' },
         { inx: '4', name: 'Chapter4', text: '4. 자바스크립트 문자열' },
         { inx: '5', name: 'Chapter5', text: '5. 자바스크립트 배열' },
-        /*
         { inx: '6', name: 'Chapter6', text: '6. 자바스크립트 객체' },
+        /*
         { inx: '7', name: 'Chapter7', text: '7. 자바스크립트 메모리 관리' },
         { inx: '8', name: 'Chapter8', text: '8. 재귀' },
         { inx: '9', name: 'Chapter9', text: '9. 집합' },
